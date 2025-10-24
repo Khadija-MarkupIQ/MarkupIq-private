@@ -63,13 +63,13 @@ export default function Workflow() {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`group relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12 ${
+                className={`group relative flex flex-col lg:flex-row items-center gap-6 lg:gap-12 ${
                   index % 2 === 0 ? 'lg:flex-row-reverse' : ''
                 }`}
               >
                 {/* Step Content Card */}
                 <div className="flex-1 w-full lg:w-auto">
-                  <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 hover:bg-white hover:border-blue-300 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1">
+                   <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl sm:rounded-2xl p-6 sm:p-8 hover:bg-white hover:border-blue-300 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1">
                     <div className="flex items-start gap-4">
                       <div className="text-3xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                         {step.icon}

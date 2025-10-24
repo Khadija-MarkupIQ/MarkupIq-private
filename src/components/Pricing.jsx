@@ -185,16 +185,16 @@ export default function Pricing() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {plans[billingCycle].map((plan, index) => (
-            <div
-              key={plan.name}
-              className={`relative rounded-3xl p-8 transition-all duration-300 transform hover:-translate-y-2 ${
-                plan.popular
-                  ? "bg-gradient-to-br from-blue-600 to-purple-600 shadow-2xl scale-105 text-white"
-                  : "bg-white border border-gray-200 hover:border-blue-300 shadow-lg text-gray-900"
-              }`}
-            >
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+  {plans[billingCycle].map((plan, index) => (
+    <div
+      key={plan.name}
+      className={`relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-300 transform hover:-translate-y-2 ${
+        plan.popular
+          ? "bg-gradient-to-br from-blue-600 to-purple-600 shadow-2xl scale-105 text-white"
+          : "bg-white border border-gray-200 hover:border-blue-300 shadow-lg text-gray-900"
+      }`}
+    >
               {/* Tags */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">

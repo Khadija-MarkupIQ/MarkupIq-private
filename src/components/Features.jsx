@@ -57,12 +57,12 @@ export default function Features() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative bg-white p-8 rounded-3xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-2"
-            >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+  {features.map((feature, index) => (
+    <div
+      key={index}
+      className="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-2"
+    >
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-100/40 to-purple-100/30 opacity-0 group-hover:opacity-100 blur-lg transition duration-500"></div>
 

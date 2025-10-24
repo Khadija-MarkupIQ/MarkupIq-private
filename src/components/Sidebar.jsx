@@ -11,11 +11,12 @@ export default function Sidebar({ isOpen, onClose }) {
         />
       )}
       
-      {/* Sidebar - Now on left side */}
-      <div className={`
-        fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out
+      {/* Sidebar  */}
+     <div className={`
+        fixed top-0 left-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
+
         <div className="p-6 h-full flex flex-col">
           {/* Header with close button */}
           <div className="flex items-center justify-between mb-8">

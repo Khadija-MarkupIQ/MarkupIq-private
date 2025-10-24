@@ -38,12 +38,12 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200/60 shadow-lg hover:shadow-2xl hover:border-blue-300/50 transition-all duration-500 transform hover:-translate-y-2"
-            >
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+  {testimonials.map((testimonial, index) => (
+    <div
+      key={index}
+      className="group relative bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-gray-200/60 shadow-lg hover:shadow-2xl hover:border-blue-300/50 transition-all duration-500 transform hover:-translate-y-2"
+    >
               {/* Glow effect on hover */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/50 to-slate-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
               
