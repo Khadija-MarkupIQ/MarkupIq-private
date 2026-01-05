@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -18,4 +17,3 @@ If you are developing a production application, we recommend using TypeScript wi
 =======
 # RedlineIQ_
 RedlineIQ is a cutting-edge AI-powered platform designed to transform the way Architecture, Engineering, and Construction (AEC) professionals manage redline markups and convert them into clean, accurate As-Built drawings.
->>>>>>> 0b87ee5e8d48b6895db05fd435a7d93017237777
