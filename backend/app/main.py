@@ -5,7 +5,24 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 
-app = FastAPI(title="RedlineIQ Backend")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex=r"^https://.*\.vercel\.app$",
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://markup-iq-private.vercel.app",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+from fastapi.responses import Response
+
+@app.options("/{path:path}")
+def preflight_handler(path: str):
+    return Response(status_code=200)
 
 @app.get("/health")
 def health():
