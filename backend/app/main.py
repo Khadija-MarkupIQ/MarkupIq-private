@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from supabase import create_client
+from fastapi.middleware.cors import CORSMiddleware
 
 from .config import SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 
