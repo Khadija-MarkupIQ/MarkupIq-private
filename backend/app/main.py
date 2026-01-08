@@ -1,24 +1,25 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from pydantic import BaseModel
 from supabase import create_client
-from fastapi.middleware.cors import CORSMiddleware
 
 from .config import SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 
+app = FastAPI(title="RedlineIQ Backend")
+
+# ✅ CORS MUST be added immediately after app creation
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"^https://.*\.vercel\.app$",
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:3000",
         "https://markup-iq-private.vercel.app",
     ],
-    allow_credentials=True,
+    allow_credentials=False,  # keep false unless you use cookies/auth sessions
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-from fastapi.responses import Response
 
 @app.options("/{path:path}")
 def preflight_handler(path: str):
@@ -43,6 +44,7 @@ def create_project(payload: ProjectCreate):
         "name": payload.name,
         "user_id": payload.user_id
     }).execute()
+
     if not resp.data:
         raise HTTPException(status_code=500, detail="Failed to create project")
     return resp.data[0]
