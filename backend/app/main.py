@@ -14,13 +14,18 @@ app = FastAPI(title="RedlineIQ Backend")
 # ------------------------------------------------------------------------------
 # CORS (must be added immediately after app creation)
 # ------------------------------------------------------------------------------
+origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://redline-iq.vercel.app",
+    "https://www.redline-iq.vercel.app",
+    # Keep only if still used:
+    "https://markup-iq-private.vercel.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "https://markup-iq-private.vercel.app",
-    ],
+    allow_origins=origins,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
