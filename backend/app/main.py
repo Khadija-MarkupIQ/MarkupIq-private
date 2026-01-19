@@ -31,7 +31,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Handle preflight requests explicitly
+# Handle preflight requests explicitly (optional, but safe to keep for now)
 @app.options("/{path:path}")
 def preflight_handler(path: str):
     return Response(status_code=200)
@@ -54,16 +54,31 @@ class ProjectCreate(BaseModel):
 # ------------------------------------------------------------------------------
 # Routes
 # ------------------------------------------------------------------------------
+@app.get("/")
+def root():
+    return {
+        "ok": True,
+        "service": "RedlineIQ Backend",
+        "health": "/health",
+        "docs": "/docs",
+        "projects": "/projects",
+    }
+
+@app.get("/favicon.ico")
+def favicon():
+    return Response(status_code=204)
+
 @app.get("/health")
 def health():
     return {"ok": True}
 
 @app.post("/projects")
 def create_project(payload: ProjectCreate):
-    resp = supabase.table("projects").insert({
-        "name": payload.name,
-        "user_id": payload.user_id,
-    }).execute()
+    resp = (
+        supabase.table("projects")
+        .insert({"name": payload.name, "user_id": payload.user_id})
+        .execute()
+    )
 
     if not resp.data:
         raise HTTPException(status_code=500, detail="Failed to create project")
